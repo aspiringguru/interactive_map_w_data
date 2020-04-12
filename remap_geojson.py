@@ -4,7 +4,7 @@ import json
 json_filename_in = 'world.geojson'
 json_filename_out = 'world_new.geojson'
 
-//df = pd.read_csv('world_population.csv',  error_bad_lines=False)
+#df = pd.read_csv('world_population.csv',  error_bad_lines=False)
 df = pd.read_csv('world_population_match_geojson.csv',  error_bad_lines=False)
 df.loc[df['code'] == 'ZWE']
 #b'Skipping line 64: expected 3 fields, saw 4\n
