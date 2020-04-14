@@ -42,9 +42,17 @@ df_cr_iso.columns
 df_world_pop = pd.read_csv("world_population.csv")
 df_world_pop.shape
 df_world_pop.columns
+#['name', 'code', 'pop']
 
 df_world_pop_cr_iso = pd.merge(df_world_pop,
-                 df_cr_iso[['name_', 'alpha-3']],
-                 left_on='country_',
-                 right_on='name_',
+                 df_cr_iso,
+                 left_on='code',
+                 right_on='alpha-3',
                  how='left')
+df_world_pop_cr_iso.shape
+df_world_pop_cr_iso.columns
+df_world_pop_cr_iso.head()
+df_world_pop_cr_iso.drop(['country_', 'name_', 'alpha-3'], axis=1, inplace=True)
+df_world_pop_cr_iso.rename(columns={"Moody's": "Moodys"}, inplace=True)
+df_world_pop_cr_iso.rename(columns={"S&P": "SandP"}, inplace=True)
+df_world_pop_cr_iso.to_csv('world_pop_cr_iso.csv', index=False)
